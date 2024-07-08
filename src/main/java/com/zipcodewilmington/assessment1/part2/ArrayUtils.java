@@ -34,13 +34,17 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
+
+
+
         List<Object> objects = new ArrayList<>();
         for(Object c : objectArray){
             if(!c.equals(objectToRemove)){
                 objects.add(c);
             }
+
         }
-        Object[] newObject = objects.toArray();
+        Object[] newObject = objects.toArray(new Object[objects.size()]);
 
 
         return newObject;

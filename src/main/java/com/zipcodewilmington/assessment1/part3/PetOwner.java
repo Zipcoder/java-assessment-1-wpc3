@@ -2,6 +2,7 @@ package com.zipcodewilmington.assessment1.part3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by leon on 2/16/18.
@@ -15,12 +16,13 @@ public class PetOwner {
     private String name;
 
     private PetOwner petOwner;
-    private ArrayList<Pet> pets;
+    private List<Pet> pets;
 
 
     public PetOwner(String name, Pet... pets) {
         this.name = name;
         this.pets = new ArrayList<>();
+
 
 
     }
@@ -31,16 +33,16 @@ public class PetOwner {
     public void addPet(Pet pet) {
 
 
-        addPet(pet);
+        pets.add(pet);
     }
 
     /**
      * @param pet pet to be removed from the composite collection Pets
      */
     public void removePet(Pet pet) {
-    pets.add(pet);
 
-        removePet(pet);
+
+        pets.remove(pet);
     }
 
     /**
@@ -89,7 +91,7 @@ public class PetOwner {
      */
     public Integer getNumberOfPets() {
 
-        return null;
+        return pets.size();
     }
 
     /**
@@ -105,6 +107,6 @@ public class PetOwner {
      */
     public Pet[] getPets() {
 
-        return null;
+        return pets.toArray(new Pet[0]);
     }
 }
