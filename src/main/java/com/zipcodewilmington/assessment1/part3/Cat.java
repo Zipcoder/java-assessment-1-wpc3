@@ -14,12 +14,12 @@ public class Cat extends Pet {
 
     private String name;
     private int age;
-    private String petOwner;
+    private PetOwner owner;
 
     public Cat(String name, Integer age) {
+        this.name = name;
 
-    name = "";
-    age = Integer.MAX_VALUE;
+        this.age = age;
 
     }
 
@@ -27,6 +27,7 @@ public class Cat extends Pet {
      * @param age age of this Cat
      */
     public Cat(Integer age) {
+        this.name = "Cat name";
         this.age = age;
 
     }
@@ -46,7 +47,7 @@ public class Cat extends Pet {
      * age is 0
      */
     public Cat() {
-        this.name = "CatName";
+        this.name = "Cat name";
         this.age = 0;
     }
 
@@ -57,4 +58,25 @@ public class Cat extends Pet {
 
         return "Meow";
     }
+
+
+
+    @Override
+    public int getAge() {
+        return age;
+    }
+
+//    public void setAge(int age) {
+//        this.age = 0;
+//    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+//    public void setName(String name) {
+//
+//        this.name = "Cat name";
+//    }
 }

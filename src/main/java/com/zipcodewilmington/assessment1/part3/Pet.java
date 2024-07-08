@@ -1,5 +1,7 @@
 package com.zipcodewilmington.assessment1.part3;
 
+import java.security.acl.Owner;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -10,9 +12,10 @@ public abstract class Pet implements Animal {
      */
     private int age;
     private String name;
+    private PetOwner petOwner;
 
     public Pet() {
-        this.age = Integer.MAX_VALUE;
+        this.age = 0;
         this.name = "";
     }
 
@@ -51,7 +54,7 @@ public abstract class Pet implements Animal {
     /**
      * @return age of this pet
      */
-    public Integer getAge() {
+    public int getAge() {
 
         return age;
     }
@@ -61,12 +64,14 @@ public abstract class Pet implements Animal {
      * ensure this instance of `Pet` is added to the owner's composite `pets` list
      */
     public void setOwner(PetOwner newPetOwner) {
+        this.petOwner = newPetOwner;
     }
 
     /**
      * @return PetOwner object whose composite `pets` collection contains this Pet instance
      */
     public PetOwner getOwner() {
-        return null;
+
+        return petOwner;
     }
 }
