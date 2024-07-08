@@ -5,16 +5,21 @@ package com.zipcodewilmington.assessment1.part3;
  */
 public class Cat extends Pet {
 
-    private String name;
-    private int age;
+
     /**
      * @param name name of this Cat
      * @param age age of this Cat
+     *
      */
+
+    private String name;
+    private int age;
+    private String petOwner;
+
     public Cat(String name, Integer age) {
 
-    this.name = name;
-    this.age = age;
+    name = "";
+    age = Integer.MAX_VALUE;
 
     }
 
@@ -23,6 +28,7 @@ public class Cat extends Pet {
      */
     public Cat(Integer age) {
         this.age = age;
+
     }
 
     /**
@@ -40,8 +46,8 @@ public class Cat extends Pet {
      * age is 0
      */
     public Cat() {
-        this.name = "John";
-        this.age = Integer.MAX_VALUE;
+        this.name = "CatName";
+        this.age = 0;
     }
 
     /**

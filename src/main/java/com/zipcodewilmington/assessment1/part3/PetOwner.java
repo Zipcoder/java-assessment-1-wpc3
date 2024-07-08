@@ -7,21 +7,28 @@ public class PetOwner {
     /**
      * @param name name of the owner of the Pet
      * @param pets array of Pet object
+     *
      */
+    private String name;
+    private String pets;
+
     public PetOwner(String name, Pet... pets) {
+        this.name = name;
+
     }
 
     /**
      * @param pet pet to be added to the composite collection of Pets
      */
     public void addPet(Pet pet) {
+        addPet(pet);
     }
 
     /**
      * @param pet pet to be removed from the composite collection Pets
      */
     public void removePet(Pet pet) {
-
+    removePet(pet);
     }
 
     /**
@@ -29,6 +36,8 @@ public class PetOwner {
      * @return true if I own this pet
      */
     public Boolean isOwnerOf(Pet pet) {
+
+
         return null;
     }
 
