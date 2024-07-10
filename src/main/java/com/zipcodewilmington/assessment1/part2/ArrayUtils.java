@@ -1,5 +1,7 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import java.util.*;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -11,7 +13,15 @@ public class ArrayUtils {
      * Given an array of objects, named `objectArray`, and an object `objectToCount`, return the number of times the `objectToCount` appears in the `objectArray`
      */
     public static Integer getNumberOfOccurrences(Object[] objectArray, Object objectToCount) {
-        return null;
+        int counter = 0;
+
+        for(Object c : objectArray){
+            if(c.equals(objectToCount)){
+                counter++;
+            }
+        }
+
+        return counter;
     }
 
     /**
@@ -21,7 +31,19 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        return null;
+
+        List<Object> resultList = new ArrayList<>();
+
+        for(Object obj : objectArray){
+            if(!obj.equals(objectToRemove)){
+                resultList.add(obj);
+            }
+        }
+
+
+
+
+        return resultList.toArray(Integer[] ::new);
     }
 
     /**
@@ -30,7 +52,31 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
-        return null;
+
+
+        Map<Object, Integer> counMap = new HashMap<>();//Hashmap to store count of each object
+
+        //Iterate through array to count occurences of each object
+        for(Object object : objectArray){
+            if(counMap.containsKey(object)){
+                counMap.put(object, counMap.get(object)+1);
+            }
+            else counMap.put(object, 1);
+        }
+
+        //Variables to track the most frequent object and its counts
+        Object mostfreq = null;
+        int maxCount = 0;
+
+        //Iterate through the countMap to find the object with highest count
+        for (Map.Entry<Object, Integer> entry : counMap.entrySet()){
+            if(entry.getValue() > maxCount){
+                maxCount = entry.getValue();
+                mostfreq = entry.getKey();
+;            }
+        }
+
+        return mostfreq;
     }
 
 
@@ -40,7 +86,32 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
-        return null;
+
+        Map<Object, Integer> counMap = new HashMap<>();//Hashmap to store count of each object
+
+        //Iterate through array to count occurences of each object
+        for(Object object : objectArray){
+            if(counMap.containsKey(object)){
+                counMap.put(object, counMap.get(object)+1);
+            }
+            else counMap.put(object, 1);
+        }
+
+        //Variables to track the most frequent object and its counts
+        Object minfreq = null;
+        int minCount = Integer.MAX_VALUE;
+
+        //Iterate through the countMap to find the object with highest count
+        for (Map.Entry<Object, Integer> entry : counMap.entrySet()){
+            if(entry.getValue() < minCount){
+                minCount = entry.getValue();
+                minfreq = entry.getKey();
+                ;            }
+        }
+
+
+
+        return minfreq;
     }
 
     /**
@@ -50,6 +121,29 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        return null;
+
+    int lenght1 = objectArray.length;
+    int length2 = objectArrayToAdd.length;
+    int combinedLength = lenght1 + length2;
+
+    Object[] resultArray = Arrays.copyOf(objectArray, combinedLength);
+        System.arraycopy(objectArrayToAdd, 0, resultArray, lenght1, length2);
+
+
+
+//    //Calculate the length of the resulting array
+//    int mergedLlength = objectArray.length + objectArray.length;
+//
+//    //Create a new array with the calculated length
+//        Object[] mergedArray = new Object[mergedLlength];
+//
+//    //Copy elements from objectArrayToAdd to mergedArray
+//    System.arraycopy(objectArray, 0, mergedArray, 0, objectArray.length);
+//
+//    //Copy elements from objectArraytoAdd to mergedArry
+//        System.arraycopy(objectArrayToAdd, 0, mergedArray, objectArray.length, objectArray.length);
+
+
+        return resultArray ;
     }
 }

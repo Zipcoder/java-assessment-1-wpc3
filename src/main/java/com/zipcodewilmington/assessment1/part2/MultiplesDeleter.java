@@ -1,5 +1,8 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -10,7 +13,16 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with evens removed
      */
     public Integer[] deleteEvens(Integer[] ints) {
-        return null;
+        List<Integer>oddList = new ArrayList<>();
+        for(Integer i : ints){
+            if(i % 2!=0){
+                oddList.add(i);
+            }
+        }
+
+        Integer[] answer = oddList.toArray(new Integer[oddList.size()]);
+
+        return answer;
     }
 
     /**
@@ -19,7 +31,19 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with odds removed
      */
     public Integer[] deleteOdds(Integer[] ints) {
-        return null;
+
+        List<Integer>evenList = new ArrayList<>();
+        for(Integer i : ints){
+            if(i % 2==0){
+                evenList.add(i);
+            }
+        }
+
+        Integer[] answer = evenList.toArray(new Integer[evenList.size()]);
+
+        return answer;
+
+
     }
 
     /**
@@ -28,7 +52,18 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with numbers indivisible by 3 removed
      */
     public Integer[] deleteMultiplesOf3(Integer[] ints) {
-        return null;
+
+
+        List<Integer>threeList = new ArrayList<>();
+        for(Integer i : ints){
+            if(i % 3!=0){
+                threeList.add(i);
+            }
+        }
+
+        Integer[] answer = threeList.toArray(new Integer[threeList.size()]);
+
+        return answer;
     }
 
     /**
@@ -38,6 +73,18 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with numbers indivisible by `multiple` removed
      */
     public Integer[] deleteMultiplesOfN(Integer[] ints, int multiple) {
-        return null;
+
+        List<Integer>nList = new ArrayList<>();
+        for(Integer i : ints){
+            if(i % multiple!=0){
+                nList.add(i);
+            }
+        }
+
+        Integer[] answer = nList.toArray(new Integer[nList.size()]);
+
+        return answer;
+
+
     }
 }
