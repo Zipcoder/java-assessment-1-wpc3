@@ -1,9 +1,6 @@
 package com.zipcodewilmington.assessment1.part2;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by leon on 2/16/18.
@@ -35,19 +32,18 @@ public class ArrayUtils {
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
 
+        List<Object> resultList = new ArrayList<>();
 
-
-        List<Object> objects = new ArrayList<>();
-        for(Object c : objectArray){
-            if(!c.equals(objectToRemove)){
-                objects.add(c);
+        for(Object obj : objectArray){
+            if(!obj.equals(objectToRemove)){
+                resultList.add(obj);
             }
-
         }
-        Object[] newObject = objects.toArray(new Object[objects.size()]);
 
 
-        return newObject;
+
+
+        return resultList.toArray(Integer[] ::new);
     }
 
     /**
@@ -126,19 +122,28 @@ public class ArrayUtils {
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
 
-    //Calculate the length of the resulting array
-    int mergedLlength = objectArray.length + objectArray.length;
+    int lenght1 = objectArray.length;
+    int length2 = objectArrayToAdd.length;
+    int combinedLength = lenght1 + length2;
 
-    //Create a new array with the calculated length
-        Object[] mergedArray = new Object[mergedLlength];
-
-    //Copy elements from objectArrayToAdd to mergedArray
-    System.arraycopy(objectArray, 0, mergedArray, 0, objectArray.length);
-
-    //Copy elements from objectArraytoAdd to mergedArry
-        System.arraycopy(objectArrayToAdd, 0, mergedArray, objectArray.length, objectArray.length);
+    Object[] resultArray = Arrays.copyOf(objectArray, combinedLength);
+        System.arraycopy(objectArrayToAdd, 0, resultArray, lenght1, length2);
 
 
-        return mergedArray ;
+
+//    //Calculate the length of the resulting array
+//    int mergedLlength = objectArray.length + objectArray.length;
+//
+//    //Create a new array with the calculated length
+//        Object[] mergedArray = new Object[mergedLlength];
+//
+//    //Copy elements from objectArrayToAdd to mergedArray
+//    System.arraycopy(objectArray, 0, mergedArray, 0, objectArray.length);
+//
+//    //Copy elements from objectArraytoAdd to mergedArry
+//        System.arraycopy(objectArrayToAdd, 0, mergedArray, objectArray.length, objectArray.length);
+
+
+        return resultArray ;
     }
 }

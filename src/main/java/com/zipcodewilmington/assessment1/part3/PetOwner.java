@@ -23,8 +23,12 @@ public class PetOwner {
         this.name = name;
         this.pets = new ArrayList<>();
 
-
-
+        if(pets != null) {
+            for (Pet pet : pets) {
+                this.pets.add(pet);
+                pet.setOwner(this);
+            }
+        }
     }
 
     /**
@@ -52,16 +56,22 @@ public class PetOwner {
     public Boolean isOwnerOf(Pet pet) {
 
 
-        return null;
+        return pets.contains(pet);
     }
 
     /**
      * @return the age of the Pet object whose age field is the lowest amongst all Pets in this class
      */
     public Integer getYoungetPetAge() {
+        int age= pets.get(0).getAge();
+        for(Pet pet : pets ){
+            //if this pet is younger update value of age
+            if(pet.getAge() < age){
+                age = pet.getAge();
+            }
+        }
 
-
-        return null;
+        return age;
     }
 
 
@@ -72,8 +82,17 @@ public class PetOwner {
      */
     public Integer getOldestPetAge() {
 
+        int age= pets.get(0).getAge();
+        for(Pet pet : pets ){
+            //if this pet is younger update value of age
+            if(pet.getAge() > age){
+                age = pet.getAge();
+            }
+        }
 
-        return null;
+        return age;
+
+
     }
 
 
@@ -82,8 +101,13 @@ public class PetOwner {
      */
     public Float getAveragePetAge() {
 
+        int sum = 0;
 
-        return null;
+        for(Pet pet : pets){
+            sum += pet.getAge();
+        }
+
+        return (float) sum/pets.size();
     }
 
     /**
@@ -107,6 +131,6 @@ public class PetOwner {
      */
     public Pet[] getPets() {
 
-        return pets.toArray(new Pet[0]);
+        return pets.toArray(new Pet[pets.size()+1]);
     }
 }
